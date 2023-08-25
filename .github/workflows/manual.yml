@@ -36,4 +36,4 @@ jobs:
           username: "root"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script: ls -la            
+          script: touch /tmp/ggopatest 

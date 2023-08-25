@@ -16,7 +16,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-
+      
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
         if: ${{ github.ref == 'ref/heads/main' }}
@@ -29,6 +29,15 @@ jobs:
             TARGET: "/tmp/ogotest"
             EXCLUDE: "/dist/, /node_modules/, .git, .github, 555"
 
+      - name: main test
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          echo "main"
+          
+      - name: main dev
+        if: ${{ github.ref == 'refs/heads/dev' }}
+        run: |
+          echo "dev"
 
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.0

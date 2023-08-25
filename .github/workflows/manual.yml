@@ -28,3 +28,12 @@ jobs:
             REMOTE_USER: "root"
             TARGET: "/tmp/supernegr"
             EXCLUDE: "/dist/, /node_modules/, .git, .github, 555"
+
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: "root"
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: ls -la            

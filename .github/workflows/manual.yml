@@ -24,7 +24,7 @@ jobs:
             SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
             ARGS: "-rlgoDzvc -i"
             SOURCE: "./"
-            REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+            REMOTE_HOST: ${{ varieble.REMOTE_HOST }}
             REMOTE_USER: "root"
             TARGET: "/tmp/supernegr"
             EXCLUDE: "/dist/, /node_modules/, .git, .github, 555"

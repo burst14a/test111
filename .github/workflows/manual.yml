@@ -19,7 +19,7 @@ jobs:
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
-        if: github.head_ref == 'main'
+        if: ${{ github.ref == 'ref/heads/main' }}
         with:
             SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
             ARGS: "-rlgoDzvc -i"
@@ -38,4 +38,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: touch /tmp/ggopatest 
-        if: github.head_ref == 'dev'
+        if: ${{ github.ref == 'ref/heads/dev' }}

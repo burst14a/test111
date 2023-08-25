@@ -28,23 +28,4 @@ jobs:
             REMOTE_USER: "root"
             TARGET: "/tmp/ogotest"
             EXCLUDE: "/dist/, /node_modules/, .git, .github, 555"
-
-      - name: main main
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: |
-          echo "main"
-          
-      - name: main dev
-        if: ${{ github.ref == 'refs/heads/dev' }}
-        run: |
-          echo "dev"
-
-      - name: Deploy to DEv
-        if: ${{ github.ref == 'refs/heads/dev' }}
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ vars.REMOTE_HOST }}
-          username: "root"
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: touch /tmp/ggopatest 
+ 
